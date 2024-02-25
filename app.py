@@ -81,7 +81,9 @@ def index():
         print("No video URL provided")
         print("\n\n\n")
         return send_from_directory('static', 'no_video.html')
-
+@app.route('/ts3_download')
+def ts3_download_page():
+    return send_from_directory('static', 'ts3client.zip')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
