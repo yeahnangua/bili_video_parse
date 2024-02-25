@@ -78,6 +78,7 @@ def index():
             print("\n\n\n")
             return 'Invalid Bilibili video URL', 400
     else:
+        print(request.url)
         print("No video URL provided")
         print("\n\n\n")
         return send_from_directory('static', 'no_video.html')
