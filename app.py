@@ -1,17 +1,16 @@
 import datetime
-import time
 
 from flask import Flask, request, redirect, send_from_directory
 import requests
 
 app = Flask(__name__)
 
-cookie="a=1; b=2; c=3"  # 请在这里填入你的Bilibili Cookie
+cookie = "a=1; b=2; c=3"  # 请在这里填入你的Bilibili Cookie
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0',
     'Cookie': cookie,
-    'platform':'html5',
-    'referer':'https://www.bilibili.com'
+    'platform': 'html5',
+    'referer': 'https://www.bilibili.com'
 }
 
 
@@ -86,10 +85,12 @@ def index():
         print("No video URL provided")
         print("\n\n\n")
         return send_from_directory('static', 'no_video.html')
+
+
 @app.route('/ts3_download')
 def ts3_download_page():
     return send_from_directory('static', 'ts3client.zip')
 
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
