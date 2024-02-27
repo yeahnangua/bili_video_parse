@@ -1,3 +1,6 @@
+import datetime
+import time
+
 from flask import Flask, request, redirect, send_from_directory
 import requests
 
@@ -61,6 +64,7 @@ def get_video_direct_url(bv):
 @app.route('/')
 def index():
     video_url = request.args.get('url')
+    print(datetime.datetime.now())
     if video_url:
         bv = get_bv_from_url(video_url)
         if bv:
