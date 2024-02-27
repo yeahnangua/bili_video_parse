@@ -90,7 +90,7 @@ def index():
 
 @app.route('/ts3_download')
 def ts3_download_page():
-    return send_from_directory('static', 'ts3client.zip')
+    return send_from_directory('static', 'ts3_download.html')
 
 
 if __name__ == '__main__':
