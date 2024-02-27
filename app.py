@@ -6,6 +6,7 @@ import requests
 app = Flask(__name__)
 
 cookie = "a=1; b=2; c=3"  # 请在这里填入你的Bilibili Cookie
+
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0',
     'Cookie': cookie,
