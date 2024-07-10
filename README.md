@@ -1,7 +1,7 @@
 # 哔哩哔哩视频解析  
 ## flask项目  
 http://域名/?url=哔哩哔哩视频链接  解析视频直链  
-示例网站 http://xn--8mrw4pnmpt2aw61bo74b.com  
+示例网站 http://bili.tongxuewen.me  
 ## 项目部署
 配置flask  
 `pip install Flask requests   `
