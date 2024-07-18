@@ -85,8 +85,9 @@ def music_hander(url):
     print(music_id)
     req = requests.get(f"https://music.tongxuewen.me/mv/url?id={music_id}",headers=music_headers)
     print(req)
-    print(req.json())
-    music_url = req.json()['data'][0]['url']
+    reqq=req.json()
+    print(reqq)
+    music_url = reqq['data']['url']
     print(music_url)
     return music_url
 
