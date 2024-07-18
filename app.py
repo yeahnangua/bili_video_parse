@@ -83,7 +83,9 @@ def live_handler(url):
 def music_hander(url):
     music_id = get_music_from_url(url)
     print(music_id)
-    music_url = requests.get(f"https://music.tongxuewen.me/mv/url?id={music_id}",headers=music_headers).json()['data']['url']
+    req = requests.get(f"https://music.tongxuewen.me/mv/url?id={music_id}",headers=music_headers)
+    print(req)
+    music_url = req.json()['data'][0]['url']
     print(music_url)
     return music_url
 
