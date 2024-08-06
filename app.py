@@ -61,7 +61,7 @@ def get_video_direct_url(bv,p):
             #print(p)
             cid = pagelist_data['data'][p-1]['cid']
             print(cid)
-        except (KeyError, IndexError) as e:
+        except Exception as e:
             print(str(e))
             return None
     else:
