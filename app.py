@@ -31,21 +31,35 @@ def get_bv_from_url(url):
         parts = url.split("/")
         for part in parts:
             if part.startswith("BV"):
-                return part
+                return part[0:12]
     return None
+def get_fenp_from_url(url):
+    if "bilibili.com/video/" in url:
+        parts = url.split("/")
+        for part in parts:
+            if part.startswith("BV"):
+                if part[12:15]=="?p=":
+                    print(part[15])
+                    print("获取到分p")
+                    return part[15]
+
+    return 1
 def get_music_from_url(url):
     return url[6:]
 
 
 # 使用 Bilibili API 获取视频直链
-def get_video_direct_url(bv):
+def get_video_direct_url(bv,p):
     # 获取 cid
     pagelist_url = f"https://api.bilibili.com/x/player/pagelist?bvid={bv}"
     pagelist_response = requests.get(pagelist_url, headers=bilibili_headers)
     if pagelist_response.status_code == 200:
+        print("pagelist返回200")
         try:
             pagelist_data = pagelist_response.json()
-            cid = pagelist_data['data'][0]['cid']
+            print(pagelist_data)
+            cid = pagelist_data['data'][p-1]['cid']
+            print(cid)
         except (KeyError, IndexError):
             return None
     else:
@@ -102,8 +116,9 @@ def index():
     if url:
         if "bilibili.com/video/" in url:
             bv = get_bv_from_url(url)
+            fenp=get_fenp_from_url(url)
             if bv:
-                direct_url = get_video_direct_url(bv)
+                direct_url = get_video_direct_url(bv,fenp)
                 if direct_url:
                     print("success")
                     app.logger.info("success")
