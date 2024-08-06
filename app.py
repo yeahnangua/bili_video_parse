@@ -41,7 +41,7 @@ def get_fenp_from_url(url):
                 if part[12:15]=="?p=":
                     print(part[15])
                     print("获取到分p")
-                    return part[15]
+                    return int(part[15])
 
     return 1
 def get_music_from_url(url):
@@ -57,10 +57,12 @@ def get_video_direct_url(bv,p):
         print("pagelist返回200")
         try:
             pagelist_data = pagelist_response.json()
-            print(pagelist_data)
+            #print(pagelist_data)
+            #print(p)
             cid = pagelist_data['data'][p-1]['cid']
             print(cid)
-        except (KeyError, IndexError):
+        except (KeyError, IndexError) as e:
+            print(str(e))
             return None
     else:
         return None
