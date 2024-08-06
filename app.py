@@ -39,7 +39,7 @@ def get_fenp_from_url(url):
         for part in parts:
             if part.startswith("BV"):
                 if part[12:15]=="?p=":
-                    print(part[15])
+                    print(part[15:])
                     print("获取到分p")
                     return int(part[15:])
 
