@@ -41,7 +41,7 @@ def get_fenp_from_url(url):
                 if part[12:15]=="?p=":
                     print(part[15])
                     print("获取到分p")
-                    return int(part[15])
+                    return int(part[15:])
 
     return 1
 def get_music_from_url(url):
