@@ -34,14 +34,28 @@ def get_bv_from_url(url):
                 return part[0:12]
     return None
 def get_fenp_from_url(url):
-    if "bilibili.com/video/" in url:
-        parts = url.split("/")
-        for part in parts:
-            if part.startswith("BV"):
-                if part[12:15]=="?p=":
-                    print(part[15:])
-                    print("获取到分p")
-                    return int(part[15:])
+    try:
+        if "bilibili.com/video/" in url:
+            parts = url.split("/")
+            for part in parts:
+                if part.startswith("BV"):
+                    query_string = part.split("?")[1] if '?' in part else ''
+                    parameters = query_string.split("&")
+                    for param in parameters:
+                        if param.startswith("p="):
+                            p_value = param[2:]
+                            if "&" in p_value:
+                                p_value = p_value.split("&")[0]
+                            print(p_value)
+                            print("获取到分p")
+                            return int(p_value)
+        else:
+            print("URL不是Bilibili视频链接")
+            return None
+    except Exception as e:
+        print(f"解析分P时发生错误: {e}")
+        return None
+
 
     return 1
 def get_music_from_url(url):
