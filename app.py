@@ -76,7 +76,7 @@ def get_video_direct_url(bv,p):
             cid = pagelist_data['data'][p-1]['cid']
             print(cid)
         except Exception as e:
-            print(str(e))
+            print(f"!!!!!\nException: {str(e)} {bv} {pagelist_data}\n!!!")
             return None
     else:
         return None
