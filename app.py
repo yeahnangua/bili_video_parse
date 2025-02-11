@@ -162,7 +162,7 @@ def index():
                 app.logger.info("Invalid Bilibili video URL")
                 printt("\n\n\n")
                 app.logger.info("\n\n\n")
-                return 'Invalid Bilibili video URL', 400
+                return 'Invalid  video URL', 400
         if "live.bilibili.com" in url:
             printt(url)
             app.logger.info(url)
@@ -188,7 +188,7 @@ def index():
 
 
     else:
-        return send_from_directory('static', 'no_video.html')
+        return 'No video URL provided', 400
 
 
 @app.route('/ts3_download')
