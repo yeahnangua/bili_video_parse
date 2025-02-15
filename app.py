@@ -134,7 +134,7 @@ def index():
     global tz
     tz=False
     url = request.args.get('url')
-    if(url == 'https://www.bilibili.com/video/BV1Jm411D7WQ/?spm_id_from=333.1007.tianma.1-1-1.click'):
+    if(url == 'https://www.bilibili.com/video/BV1MBNieHEfb/?spm_id_from=..search-card.all.click'):
         tz=True
     printt(url)
     printt(datetime.datetime.now())
