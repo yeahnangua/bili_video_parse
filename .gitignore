@@ -2,3 +2,13 @@
 /test.py
 /.idea
 .idea
+# Python Caches
+__pycache__/
+*.pyc
+
+# Virtual Environment (如果你用了venv)
+.venv*
+venv/
+
+# IDE specific files (e.g., for PyCharm)
+.idea/
