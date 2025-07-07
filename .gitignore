@@ -1,4 +1,4 @@
 /app.log
 /test.py
-/.idea/
-/*.log
+/.idea
+.idea
