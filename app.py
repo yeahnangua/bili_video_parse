@@ -116,7 +116,7 @@ def live_handler(url):
 def music_hander(url):
     music_id = get_music_from_url(url)
     printt(music_id)
-    req = requests.get(f"https://music.tongxuewen.me/mv/url?id={music_id}",headers=music_headers)
+    req = requests.get(f"http://127.0.0.1/mv/url?id={music_id}",headers=music_headers)
     printt(req)
     reqq=req.json()
     printt(reqq)
