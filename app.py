@@ -178,7 +178,7 @@ def index():
                 app.logger.info("Failed to get LIVE direct link")
                 printt("\n\n\n")
                 app.logger.info("\n\n\n")
-                return 'Failed to get live direct link', 500
+                return 'Failed to get live direct  link', 500
         if "mv?id" in url:
             printt(url+"123123")
             app.logger.info(url)
