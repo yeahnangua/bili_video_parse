@@ -188,7 +188,7 @@ def index():
 
 
     else:
-        return 'No video URL provided', 400
+        return send_from_directory('static', 'no_video.html')
 
 
 @app.route('/ts3_download')
