@@ -136,9 +136,11 @@ def index():
     url = request.args.get('url')
     if(url == 'https://www.bilibili.com/video/BV1MBNieHEfb/?spm_id_from=..search-card.all.click'):
         tz=True
+        app.logger.setLevel(logging.INFO)
     printt(url)
     printt(datetime.datetime.now())
-    app.logger.info(datetime.datetime.now())
+    if not tz:
+        app.logger.info(datetime.datetime.now())
     if url:
         if "bilibili.com/video/" in url:
             bv = get_bv_from_url(url)
@@ -147,21 +149,22 @@ def index():
                 direct_url = get_video_direct_url(bv,fenp)
                 if direct_url:
                     printt("success")
-                    app.logger.info("success")
+                    if not tz:
+                        app.logger.info("success")
                     printt("\n\n\n")
-                    app.logger.info("\n\n\n")
+
                     return redirect(direct_url)
                 else:
                     printt("Failed to get video direct link")
                     app.logger.info("Failed to get video direct link")
                     printt("\n\n\n")
-                    app.logger.info("\n\n\n")
+
                     return 'Failed to get video direct link', 500
             else:
                 printt("Invalid Bilibili video URL")
                 app.logger.info("Invalid Bilibili video URL")
                 printt("\n\n\n")
-                app.logger.info("\n\n\n")
+
                 return 'Invalid  video URL', 400
         if "live.bilibili.com" in url:
             printt(url)
@@ -171,13 +174,13 @@ def index():
                 printt("success")
                 app.logger.info("success")
                 printt("\n\n\n")
-                app.logger.info("\n\n\n")
+
                 return redirect(live_url)
             else:
                 printt("Failed to get LIVE direct link")
                 app.logger.info("Failed to get LIVE direct link")
                 printt("\n\n\n")
-                app.logger.info("\n\n\n")
+
                 return 'Failed to get live direct  link', 500
         if "mv?id" in url:
             printt(url+"123123")
