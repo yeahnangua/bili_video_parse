@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 
-logging.basicConfig(filename='app.log', level=logging.DEBUG)
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 # Bilibili 配置
 bilibili_cookie = os.environ.get('BILIBILI_COOKIE')
