@@ -146,6 +146,7 @@ def index():
             bv = get_bv_from_url(url)
             fenp=get_fenp_from_url(url)
             if bv:
+                app.logger.info(bv)
                 direct_url = get_video_direct_url(bv,fenp)
                 if direct_url:
                     printt("success")
